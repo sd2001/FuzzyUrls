@@ -35,8 +35,8 @@ def short(request):
         url = request.POST['link']
         new_url = str(uuid.uuid4())[:4]
         surl = "https://fuzzy-url.herokuapp.com/i/"+new_url
-        sch = URL(uid = user, link = url, new = surl)
-        sch.save()
+        sch = {'uid' : user, 'link' : url, 'new' : surl}
+        coll.insert_one(sch)
         # return HttpResponse(new_url)
         return render(request, 'index.html', {'user':user, 'url': url, 'new':surl})    
 
