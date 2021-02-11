@@ -46,6 +46,7 @@ def mailing(request):
         user = request.COOKIES.get('key')
         details = coll.find_one({"uid": user})
         details = parse_json(details)
+        mssg = f"Hey,\nThanks for using our service.\nThe new url for {details['link']} is {details['new']}.\nRegards,\nSwarnabha Das\n(Ph No : 9836088355)"
         surl = details['new']
         try:
             send_mail("Shorten URLs", details['new'], settings.EMAIL_HOST_USER, [mail])
