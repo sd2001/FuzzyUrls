@@ -34,7 +34,7 @@ def short(request):
         user = request.COOKIES.get('key')
         url = request.POST['link']
         new_url = str(uuid.uuid4())[:4]
-        surl = "http://127.0.0.1:8000/i/"+new_url
+        surl = "https://fuzzy-url.herokuapp.com/i/"+new_url
         sch = URL(uid = user, link = url, new = surl)
         sch.save()
         # return HttpResponse(new_url)
@@ -54,7 +54,7 @@ def mailing(request):
             return render(request, 'index.html', {'user':user, 'new':surl, 'success': False})
         
 def openurl(request, uid):    
-    details = coll.find_one({"new": "http://127.0.0.1:8000/i/"+uid})
+    details = coll.find_one({"new": "https://fuzzy-url.herokuapp.com/i/"+uid})
     details = parse_json(details)
     full_url = details['link']
     if full_url.startswith("http"):
