@@ -7,6 +7,6 @@ urlpatterns = [
      path('',views.index, name="index"),
      path('short',views.short, name="short"),
      path('mail', views.mailing, name="mailing"),
-     path('i/<str:uid>', views.openurl, name="open"),
+     path('<str:uid>', views.openurl, name="open"),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
