@@ -12,13 +12,13 @@
     <!-- <link rel="stylesheet" href="../static/css/style.css">   -->
 </head>
 <body>
-    <form id="post-form" class="form-full" method="POST" action="/short">
+    <form id="post-form" class="form-full" method="POST" action="/s/short">
       {% csrf_token %}
         <div class="form-group">
           <input class="form-control" name="link" id="link" aria-describedby="linkHelp" placeholder="Paste the link to shorten">
         </div>
         <div align="center">
-        <br><button type="submit" id="submit" href="/short" method="POST" class="btn btn-primary">Shorten</button><br><br>
+        <br><button type="submit" id="submit" href="/s/short" method="POST" class="btn btn-primary">Shorten</button><br><br>
         </div>
     </form>
 
@@ -26,7 +26,7 @@
           {% if new %}                  
             
 
-          <form class="form-full2" method="POST" action="/mail"> 
+          <form class="form-full2" method="POST" action="/m/mail"> 
             {% csrf_token %}
             <p class="text" align="center">
               <i class="fas fa-link"></i> New Link:  <a href={{new}}>{{ new }}</a>
@@ -35,7 +35,7 @@
             <div id="sendemail" class="input-group">  
               <i id="surround" class="fas fa-envelope" style="font-size: 40px"></i>          
                 <input type="text" id="mail" name="mail" class="form-control" aria-label="Text input with radio button" placeholder="Get it in your Inbox">
-                  <button class="btn btn-success float-right" method = "POST" href="/mail" type="submit">
+                  <button class="btn btn-success float-right" method = "POST" href="/m/mail" type="submit">
                       <i class="fas fa-chevron-right"></i>  
                   </button> 
             </div>

@@ -54,7 +54,7 @@ def mailing(request):
             return render(request, 'index.html', {'user':user, 'new':surl, 'success': False})
         
 def openurl(request, uid):    
-    details = coll.find_one({"new": "https://fuzzy-url.herokuapp.com/s"+uid})
+    details = coll.find_one({"new": "https://fuzzy-url.herokuapp.com/"+uid})
     details = parse_json(details)
     full_url = details['link']
     if full_url.startswith("http"):
