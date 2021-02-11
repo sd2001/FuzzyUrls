@@ -49,7 +49,7 @@ def mailing(request):
         mssg = f"Hey,\nThanks for using our service.\nThe new url for {details['link']} is {details['new']}.\nRegards,\nSwarnabha Das\n(Ph No : 9836088355)"
         surl = details['new']
         try:
-            send_mail("Shorten URLs", details['new'], settings.EMAIL_HOST_USER, [mail])
+            send_mail("Shorten URLs", mssg, settings.EMAIL_HOST_USER, [mail])
             return render(request, 'index.html', {'user':user, 'new':surl, 'success': True})
         except Exception as e:
             return render(request, 'index.html', {'user':user, 'new':surl, 'success': False})
