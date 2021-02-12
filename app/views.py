@@ -46,7 +46,7 @@ def mailing(request):
         user = request.COOKIES.get('key')
         details = coll.find_one({"uid": user})
         details = parse_json(details)
-        mssg = f"Hey,\nThanks for using our service.\nThe new url for {details['link']} is:\n{details['new']}.\nRegards,\nSwarnabha Das\n(Ph No : 9836088355)"
+        mssg = f"Hey,\nThanks for using http://davgo.cf/.\nThe new url for {details['link']} is:\n{details['new']}.\nRegards,\nSwarnabha Das\n(Ph No : 9836088355)"
         surl = details['new']
         try:
             send_mail("Shorten URLs", mssg, settings.EMAIL_HOST_USER, [mail])
@@ -56,7 +56,7 @@ def mailing(request):
         
 def openurl(request, uid):  
     if uid is not None:  
-        details = coll.find_one({"new": "http://davgo.cf"+uid})
+        details = coll.find_one({"new": "http://davgo.cf/"+uid})
         details = parse_json(details)
         full_url = details['link']
         if full_url.startswith("http"):
