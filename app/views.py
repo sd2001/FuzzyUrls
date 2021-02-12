@@ -34,7 +34,7 @@ def short(request):
         user = request.COOKIES.get('key')
         url = request.POST['link']
         new_url = str(uuid.uuid4())[:4]
-        surl = "https://fuzzy-url.herokuapp.com/"+new_url
+        surl = "http://davgo.cf/"+new_url
         sch = {'uid' : user, 'link' : url, 'new' : surl}
         coll.insert_one(sch)
         # return HttpResponse(new_url)
@@ -56,7 +56,7 @@ def mailing(request):
         
 def openurl(request, uid):  
     if uid is not None:  
-        details = coll.find_one({"new": "https://fuzzy-url.herokuapp.com/"+uid})
+        details = coll.find_one({"new": "http://davgo.cf"+uid})
         details = parse_json(details)
         full_url = details['link']
         if full_url.startswith("http"):
