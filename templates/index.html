@@ -20,13 +20,12 @@
         <div align="center">
         <br><button type="submit" id="submit" href="/s/short" method="POST" class="btn btn-primary">Shorten</button><br><br>
         </div>
-    </form>
 
         {% block content %}
           {% if new %}                  
             
 
-          <form class="form-full2" method="POST" action="/m/mail"> 
+          <form class="form-full" method="POST" action="/m/mail"> 
             {% csrf_token %}
             <p class="text" align="center">
               <i class="fas fa-link"></i> New Link:  <a href={{new}}>{{ new }}</a>
@@ -54,7 +53,7 @@
           </form>
          {% endif %}
         {% endblock content %}
-        
+      </form>  
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

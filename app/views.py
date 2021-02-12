@@ -54,11 +54,12 @@ def mailing(request):
         except Exception as e:
             return render(request, 'index.html', {'user':user, 'new':surl, 'success': False})
         
-def openurl(request, uid):    
-    details = coll.find_one({"new": "https://fuzzy-url.herokuapp.com/"+uid})
-    details = parse_json(details)
-    full_url = details['link']
-    if full_url.startswith("http"):
-        return redirect(full_url)
-    else:        
-        return redirect("http://"+full_url)
+def openurl(request, uid):  
+    if uid is not None:  
+        details = coll.find_one({"new": "https://fuzzy-url.herokuapp.com/"+uid})
+        details = parse_json(details)
+        full_url = details['link']
+        if full_url.startswith("http"):
+            return redirect(full_url)
+        else:        
+            return redirect("http://"+full_url)
