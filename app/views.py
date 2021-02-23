@@ -10,9 +10,9 @@ from bson import ObjectId
 from bson.json_util import loads, dumps
 from Urlshort import settings
 
-client = MongoClient(os.environ.get('mongo'))
-db = client[os.environ.get('database')]
-coll = db[os.environ.get('collection')]
+client = MongoClient("mongodb+srv://sd:sddb@cluster0.3kt8t.mongodb.net/SD_URLS?retryWrites=true&w=majority")
+db = client["SD_URLS"]
+coll = db["urls"]
 # Create your views here.
 def parse_json(data):
     return json.loads(dumps(data))

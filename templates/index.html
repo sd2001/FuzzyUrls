@@ -1,61 +1,131 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+      crossorigin="anonymous"
+    />
     <title>📎Shorten Links</title>
-    
-    <link rel="stylesheet" type= "text/css" href="{% static 'css/style.css' %}">  
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/style.css' %}"
+    />
     <!-- <link rel="stylesheet" href="../static/css/style.css">   -->
-</head>
-<body>
-    <form id="post-form" class="form-full" method="POST" action="/s/short">
-      {% csrf_token %}
+  </head>
+  <body id="particles-js">
+    <div>
+      <form id="post-form" class="form-full" method="POST" action="/s/short">
+        {% csrf_token %}
         <div class="form-group">
-          <input class="form-control" name="link" id="link" aria-describedby="linkHelp" placeholder="Paste the link to shorten">
+          <input
+            class="form-control"
+            name="link"
+            id="link"
+            aria-describedby="linkHelp"
+            placeholder="Paste the link to shorten"
+          />
         </div>
         <div align="center">
-        <br><button type="submit" id="submit" href="/s/short" method="POST" class="btn btn-primary">Shorten</button><br><br>
+          <br /><button
+            type="submit"
+            id="submit"
+            href="/s/short"
+            method="POST"
+            class="btn btn-primary"
+          >
+            Shorten</button
+          ><br /><br />
         </div>
-    </form>
+      </form>
 
-        {% block content %}
-          {% if new %}                  
-            
+      {% block content %} {% if new %}
 
-          <form class="form-full" method="POST" action="/m/mail"> 
-            {% csrf_token %}
-            <p class="text" align="center">
-              <i class="fas fa-link"></i> New Link:  <a href={{new}}>{{ new }}</a>
-              
-            </p>
-            <div id="sendemail" class="input-group">  
-              <i id="surround" class="fas fa-envelope" style="font-size: 40px"></i>          
-                <input type="text" id="mail" name="mail" class="form-control" aria-label="Text input with radio button" placeholder="Get it in your Inbox">
-                  <button class="btn btn-success float-right" method = "POST" href="/m/mail" type="submit">
-                      <i class="fas fa-chevron-right"></i>  
-                  </button> 
-            </div>
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> 
-          
-            {% if success == True %}
-              <div id="success" class="alert alert-success" align="center" role="alert">
-                  Email sent! Kindly check your inbox😃
-              </div>
-            {% endif %}
-            {% if success == False %}
-            <div id="success" class="alert alert-danger" align="center" role="alert">
-              Error sending you an email, Try Again🚨!
-            </div>
-            {% endif %}
-          </form>
-         {% endif %}
-        {% endblock content %}
-</body>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+      <form class="form-full" method="POST" action="/m/mail">
+        {% csrf_token %}
+        <p class="text" align="center">
+          <i class="fas fa-link"></i> New Link: <a href="{{new}}">{{ new }}</a>
+        </p>
+        <div id="sendemail" class="input-group">
+          <i id="surround" class="fas fa-envelope" style="font-size: 40px"></i>
+          <input
+            type="text"
+            id="mail"
+            name="mail"
+            class="form-control"
+            aria-label="Text input with radio button"
+            placeholder="Get it in your Inbox"
+          />
+          <button
+            class="btn btn-success float-right"
+            method="POST"
+            href="/m/mail"
+            type="submit"
+          >
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+        <small id="emailHelp" class="form-text text-muted"
+          >We'll never share your email with anyone else.</small
+        >
+
+        {% if success == True %}
+        <div
+          id="success"
+          class="alert alert-success"
+          align="center"
+          role="alert"
+        >
+          Email sent! Kindly check your inbox😃
+        </div>
+        {% endif %} {% if success == False %}
+        <div
+          id="success"
+          class="alert alert-danger"
+          align="center"
+          role="alert"
+        >
+          Error sending you an email, Try Again🚨!
+        </div>
+        {% endif %}
+      </form>
+      {% endif %} {% endblock content %}
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"
+    ></script>
+    <script src="../static/scripts/index.js"></script>
+    <!-- Import Particles.js and app.js files -->
+    <script src="../static/scripts/particles.js"></script>
+    <script src="../static/scripts/pj.js"></script>
+  </body>
+</html>
