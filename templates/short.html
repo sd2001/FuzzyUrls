@@ -4,12 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
@@ -17,8 +12,9 @@
       crossorigin="anonymous"
     />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@300&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&display=swap"
       rel="stylesheet"
     />
     <link
@@ -32,44 +28,46 @@
   </head>
   <body id="particles-js">
     <div class="main">
-      <form id="post-form" class="form-full" method="POST" action="/s/short">
-        {% csrf_token %}
-        <div class="form-group">
-          <div class="input-field">
-            <input
-              class="form-link"
-              name="link"
-              id="link"
-              aria-describedby="linkHelp"
-              type="text"
-              required
-            />
-            <label for="link">Paste the link to shorten</label>
-          </div>
-        </div>
-        <div align="center">
-          <div class="wrap">
-            <button
-              type="submit"
-              id="submit"
-              href="/s/short"
-              method="POST"
-              class="button btn third"
-            >
-              Shorten
-            </button>
-          </div>
-        </div>
-      </form>
-
       {% block content %} {% if new %}
 
       <form id="form-2" class="form-2" method="POST" action="/m/mail">
         {% csrf_token %}
         <p class="text" align="center">
-          <i class="fas fa-link"></i> New Link: <a href="{{new}}">{{ new }}</a>
+          <i class="fas fa-link"></i> New Link:
+          <a class="link" href="{{new}}">{{ new }}</a>
         </p>
-        <div id="sendemail" class="input-group">
+        <div class="cont">
+          <i id="surround" class="fas fa-envelope" style="font-size: 40px"></i>
+          <div class="form-group">
+            <div class="input-field">
+              <input
+                type="email"
+                id="mail"
+                name="mail"
+                aria-label="Text input with radio button"
+                class="form-link"
+                required
+              />
+              <label for="mail">Get in in your inbox</label>
+            </div>
+            <button
+              class="email-btn"
+              method="POST"
+              href="/m/mail"
+              type="submit"
+            >
+              <!-- <i class="right fas fa-chevron-right"></i> -->
+              <img
+                src="https://img.icons8.com/metro/26/000000/long-arrow-right.png"
+              />
+            </button>
+          </div>
+          <small id="emailHelp" class="form-text text-muted"
+            >We'll never share your email with anyone else.</small
+          >
+        </div>
+
+        <!-- <div id="sendemail" class="input-group">
           <i id="surround" class="fas fa-envelope" style="font-size: 40px"></i>
           <input
             type="text"
@@ -87,10 +85,7 @@
           >
             <i class="fas fa-chevron-right"></i>
           </button>
-        </div>
-        <small id="emailHelp" class="form-text text-muted"
-          >We'll never share your email with anyone else.</small
-        >
+        </div> -->
 
         {% if success == True %}
         <div

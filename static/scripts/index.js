@@ -70,7 +70,3 @@ update = function () {
   requestAnimationFrame(update)
 }
 requestAnimationFrame(update)
-
-function generateLink() {
-  document.getElementById("post-form").style.display = "none"
-}

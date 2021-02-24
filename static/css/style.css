@@ -15,6 +15,9 @@ canvas {
   width: 100vw;
   height: 100vh;
 }
+:root {
+  --mainColor: #0b5f3c;
+}
 
 /* ---- particles.js container ---- */
 
@@ -43,6 +46,13 @@ canvas {
 }
 /* input */
 input[type="text"] {
+  background: transparent;
+  color: rgb(49, 63, 55);
+  font-family: "Encode Sans", sans-serif;
+  font-size: 20px;
+  /* border: none; */
+}
+input[type="email"] {
   background: transparent;
   color: rgb(49, 63, 55);
   font-family: "Encode Sans", sans-serif;
@@ -144,6 +154,47 @@ input:valid ~ label {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.form-2 {
+  width: 60%;
+  height: 50%;
+  background-color: rgba(180, 180, 180, 0.562);
+  padding: 2rem 5rem;
+  padding-top: 3rem;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.text {
+  color: rgb(49, 63, 55);
+}
+.link {
+  font-family: "Source Code Pro", monospace;
+  background: linear-gradient(
+    to bottom,
+    var(--mainColor) 0%,
+    var(--mainColor) 100%
+  );
+  background-position: 0 100%;
+  background-repeat: repeat-x;
+  background-size: 4px 4px;
+  color: rgb(0, 16, 24);
+  text-decoration: none;
+  transition: background-size 0.4s;
+}
+
+.link:hover {
+  font-size: 1.2em;
+  color: rgb(156, 158, 156);
+  background-size: 4px 50px;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+#sendemail {
+  margin: 2rem 3rem;
+}
 
 .form-link {
   line-height: 1rem;
@@ -157,14 +208,35 @@ input:valid ~ label {
 .form-control {
   margin: 0px 7px;
 }
-
+.cont {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 #link {
   margin-left: -3px;
 }
 #success {
   margin-top: 40px;
 }
-
+.form-group {
+  display: flex;
+}
+.email-btn {
+  width: 2rem;
+  background: none;
+  border: none;
+}
+.email-help {
+  flex: 0 0 100%;
+}
+right {
+  background-color: none;
+}
 p,
 a {
   font-weight: 30px;

@@ -37,7 +37,7 @@ def short(request):
         surl = "http://davgo.cf/"+new_url
         sch = {'uid' : user, 'link' : url, 'new' : surl}
         coll.insert_one(sch)
-        return render(request, 'index.html', {'user':user, 'url': url, 'new':surl})    
+        return render(request, 'short.html', {'user':user, 'url': url, 'new':surl})    
 
 def mailing(request):    
     if request.method == 'POST':        
