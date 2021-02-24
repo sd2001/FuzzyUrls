@@ -55,7 +55,7 @@ def mailing(request):
             return render(request, 'index.html', {'user':user, 'new':surl, 'success': False})
         
 def openurl(request, uid):  
-    if uid != "":  
+    if uid != "": 
         details = coll.find_one({"new": "http://davgo.cf/"+uid})
         details = parse_json(details)
         full_url = details['link']
