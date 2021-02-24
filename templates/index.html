@@ -16,6 +16,11 @@
       integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@300&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       type="text/css"
@@ -30,24 +35,37 @@
       <form id="post-form" class="form-full" method="POST" action="/s/short">
         {% csrf_token %}
         <div class="form-group">
-          <input
+          <!-- <input
             class="form-control"
             name="link"
             id="link"
             aria-describedby="linkHelp"
             placeholder="Paste the link to shorten"
-          />
+          /> -->
+          <div class="input-field">
+            <input
+              class="form-link"
+              name="link"
+              id="link"
+              aria-describedby="linkHelp"
+              type="text"
+              required
+            />
+            <label for="link">Paste the link to shorten:</label>
+          </div>
         </div>
         <div align="center">
-          <br /><button
-            type="submit"
-            id="submit"
-            href="/s/short"
-            method="POST"
-            class="btn btn-primary"
-          >
-            Shorten</button
-          ><br /><br />
+          <div class="wrap">
+            <button
+              type="submit"
+              id="submit"
+              href="/s/short"
+              method="POST"
+              class="button btn third"
+            >
+              Shorten
+            </button>
+          </div>
         </div>
       </form>
 

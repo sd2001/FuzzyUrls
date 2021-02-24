@@ -41,32 +41,111 @@ canvas {
   background-size: cover;
   background-position: 50% 50%;
 }
-.btn btn-primary {
-  display: block;
-  margin: 0 auto;
-  background-color: #0b5f3c;
+/* input */
+input[type="text"] {
+  background: transparent;
+  color: rgb(49, 63, 55);
+  font-family: "Encode Sans", sans-serif;
+  font-size: 20px;
+  /* border: none; */
 }
-.btn-primary {
-  background-color: #0b5f3c;
-  border: None;
+.input-field {
+  position: relative;
+  width: 250px;
+  height: 44px;
+  line-height: 44px;
 }
-.btn-primary:hover {
-  background-color: rgb(233, 181, 69);
+label {
+  background-color: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: #d3d3d3;
+  transition: 0.2s all;
+  cursor: text;
 }
-.btn-primary:after {
-  background-color: rgb(30, 0, 65);
+input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid #d3d3d3;
+  box-shadow: none;
+  color: #111;
+}
+input:invalid {
+  outline: 0;
+}
+input:focus,
+input:valid {
+  border-color: #08817b;
+}
+input:focus ~ label,
+input:valid ~ label {
+  font-size: 18px;
+  top: -24px;
+  color: #ffffff;
+}
+/* button */
+
+.btn {
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #e74c3c;
+  border-radius: 0.6em;
+  color: #e74c3c;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  margin: 20px;
+  padding: 1.2em 2.8em;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+.btn:hover,
+.btn:focus {
+  color: #fff;
+  outline: 0;
 }
 
+.third {
+  border-color: #0b5f3c;
+  color: #fff;
+  box-shadow: 0 0 40px 40px #0b5f3c inset, 0 0 0 0 #0b5f3c;
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+}
+.third:hover {
+  color: #0b5f3c;
+  box-shadow: 0 0 10px 0 #fcfbcd inset, 0 0 10px 4px #0b5f3c;
+}
 .form-full {
-  background-color: rgb(180, 180, 180);
-  /* margin: 20rem; */
-  padding: 30px;
-  padding-bottom: 20px;
+  background-color: rgba(180, 180, 180, 0.562);
+  padding: 2rem 5rem;
+  padding-top: 3rem;
   border-radius: 10px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+.form-link {
+  line-height: 1rem;
 }
 .form-full2 {
   background-color: rgb(240, 219, 150);
