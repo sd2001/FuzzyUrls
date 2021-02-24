@@ -37,7 +37,6 @@ def short(request):
         surl = "http://davgo.cf/"+new_url
         sch = {'uid' : user, 'link' : url, 'new' : surl}
         coll.insert_one(sch)
-        # return HttpResponse(new_url)
         return render(request, 'index.html', {'user':user, 'url': url, 'new':surl})    
 
 def mailing(request):    
@@ -55,7 +54,7 @@ def mailing(request):
             return render(request, 'index.html', {'user':user, 'new':surl, 'success': False})
         
 def openurl(request, uid):  
-    if uid is not None:  
+    if uid != "": 
         details = coll.find_one({"new": "http://davgo.cf/"+uid})
         details = parse_json(details)
         full_url = details['link']

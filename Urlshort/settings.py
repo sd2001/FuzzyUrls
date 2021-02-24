@@ -66,11 +66,11 @@ WSGI_APPLICATION = 'Urlshort.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
-        'NAME': os.environ.get('database'),
-        'CLIENT': {
-           'host': os.environ.get('mongo'),
-        }
+        # 'ENGINE': 'djongo',
+        # 'NAME': os.environ.get('database'),
+        # 'CLIENT': {
+        #    'host': os.environ.get('mongo'),
+        # }
     }
 }
 
