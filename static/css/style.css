@@ -95,9 +95,9 @@ input:valid ~ label {
   -moz-appearance: none;
   appearance: none;
   background-color: transparent;
-  border: 2px solid #e74c3c;
+  /* border: 2px solid #e74c3c; */
   border-radius: 0.6em;
-  color: #e74c3c;
+  /* color: #e74c3c; */
   cursor: pointer;
   display: -webkit-box;
   display: -webkit-flex;
@@ -144,6 +144,7 @@ input:valid ~ label {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 .form-link {
   line-height: 1rem;
 }

@@ -57,6 +57,7 @@
         <div align="center">
           <div class="wrap">
             <button
+              onclick="generateLink()"
               type="submit"
               id="submit"
               href="/s/short"
@@ -71,7 +72,7 @@
 
       {% block content %} {% if new %}
 
-      <form class="form-full" method="POST" action="/m/mail">
+      <form id="form-2" class="form-2" method="POST" action="/m/mail">
         {% csrf_token %}
         <p class="text" align="center">
           <i class="fas fa-link"></i> New Link: <a href="{{new}}">{{ new }}</a>
