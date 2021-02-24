@@ -33,7 +33,7 @@ def short(request):
     if request.method == 'POST':
         user = request.COOKIES.get('key')
         url = request.POST['link']
-        new_url = str(uuid.uuid4())[:4]
+        new_url = str(uuid.uuid4())[:5]
         surl = "http://davgo.cf/"+new_url
         sch = {'uid' : user, 'link' : url, 'new' : surl}
         coll.insert_one(sch)
