@@ -49,9 +49,9 @@ def mailing(request):
         surl = details['new']
         try:
             send_mail("Shorten URLs", mssg, settings.EMAIL_HOST_USER, [mail])
-            return render(request, 'index.html', {'user':user, 'new':surl, 'success': True})
+            return render(request, 'short.html', {'user':user, 'new':surl, 'success': True})
         except Exception as e:
-            return render(request, 'index.html', {'user':user, 'new':surl, 'success': False})
+            return render(request, 'short.html', {'user':user, 'new':surl, 'success': False})
         
 def openurl(request, uid):  
     if uid != "": 

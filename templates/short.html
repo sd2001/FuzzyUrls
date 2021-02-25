@@ -64,9 +64,9 @@
           </div>
         </div>
         <div class="info-cont">
-          <small id="emailHelp" class="form-text text-muted"></small>
-            <i>We'll never share your email with anyone else</i></small
-          >
+          <small id="emailHelp" class="form-text text-muted">
+            <i>We'll never share your email with anyone else</i>
+          </small>
         </div>
 
         {% if success == True %}
@@ -85,7 +85,8 @@
           align="center"
           role="alert"
         >
-          Error sending you an email, Try Again🚨!
+          <i class="fa fa-times-circle"></i>
+          <strong>Error sending you an email, Try Again!</strong>
         </div>
         {% endif %}
       </form>

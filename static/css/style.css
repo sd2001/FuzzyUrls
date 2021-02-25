@@ -1,5 +1,36 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap");
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 
+/* .isa_info,
+.isa_success,
+.isa_warning,
+.isa_error {
+  margin: 10px 0px;
+  padding: 12px;
+} */
+.main {
+  overflow-x: hidden;
+}
+.alert-danger {
+  color: #d8000c;
+  background-color: #ffd2d2;
+  margin: 1rem 0;
+  padding: 1rem;
+  max-width: 60%;
+}
+
+.isa_error {
+  color: #4f8a10;
+  background-color: #ffd2d2;
+}
+.isa_info i,
+.isa_success i,
+.isa_warning i,
+.isa_error i {
+  margin: 10px 22px;
+  font-size: 2em;
+  vertical-align: middle;
+}
 body {
   font-family: "Roboto", sans-serif;
   color: black;
@@ -22,10 +53,10 @@ canvas {
 /* ---- particles.js container ---- */
 
 /* ---- reset ---- */
-body {
+/* body {
   margin: 0;
   font: normal 75% Arial, Helvetica, sans-serif;
-}
+} */
 canvas {
   display: block;
   z-index: -1;
@@ -156,8 +187,9 @@ input:valid ~ label {
   transform: translate(-50%, -50%);
 }
 .form-2 {
-  width: 60%;
-  height: 50%;
+  width: 40%;
+  height: auto;
+  min-height: 30%;
   background-color: rgba(180, 180, 180, 0.562);
   padding: 2rem 5rem;
   padding-top: 3rem;
@@ -222,9 +254,6 @@ input:valid ~ label {
 #link {
   margin-left: -3px;
 }
-#success {
-  margin-top: 40px;
-}
 .form-group {
   display: flex;
 }
@@ -249,13 +278,20 @@ a {
 
 @media (max-width: 767px) {
   body {
+    overflow-x: hidden;
     margin-top: 30%;
     padding: 10% 3%;
   }
 }
-
+#success {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+}
 @media (max-width: 540px) {
   body {
+    overflow-x: hidden;
     margin-top: 50%;
     padding: 10% 5%;
   }
