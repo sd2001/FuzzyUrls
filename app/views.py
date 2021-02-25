@@ -57,8 +57,11 @@ def openurl(request, uid):
     if uid != "": 
         details = coll.find_one({"new": "http://davgo.cf/"+uid})
         details = parse_json(details)
-        full_url = details['link']
-        if full_url.startswith("http"):
-            return redirect(full_url)
-        else:        
-            return redirect("http://"+full_url)
+        if details:
+            full_url = details['link']
+            if full_url.startswith("http"):
+                return redirect(full_url)
+            else:        
+                return redirect("http://"+full_url)
+        else:
+            return HttpResponse(200)
