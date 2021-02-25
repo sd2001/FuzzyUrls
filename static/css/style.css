@@ -64,6 +64,7 @@ input[type="email"] {
   width: 250px;
   height: 44px;
   line-height: 44px;
+  margin: 0 1rem;
 }
 label {
   background-color: none;
@@ -210,12 +211,13 @@ input:valid ~ label {
 }
 .cont {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+.info-cont {
+  text-align: center;
 }
 #link {
   margin-left: -3px;
