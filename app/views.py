@@ -145,7 +145,7 @@ def geturl(request):
                         "status": "Invalid Credentials",
                         "additional": "Token doesn't match our records"
                     },
-                    "code":details
+                    "code": 400,
                 }, 
                 status = status.HTTP_400_BAD_REQUEST)			
     
