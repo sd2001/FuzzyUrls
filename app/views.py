@@ -43,7 +43,7 @@ def short(request):
         user = request.COOKIES.get('key')
         url = request.POST['link']
         new_url = str(uuid.uuid4())[:5]
-        surl = "davgo.cf/"+new_url
+        surl = "http://davgo.cf/"+new_url
         sch = {'uid' : user, 'link' : url, 'new' : surl}
         coll.insert_one(sch)
         return render(request, 'short.html', {'user':user, 'url': url, 'new':surl}) 
@@ -67,7 +67,7 @@ def mailing(request):
         
 def openurl(request, uid):  
     if uid != "": 
-        details = coll.find_one({"new": "davgo.cf/"+uid})
+        details = coll.find_one({"new": "http://davgo.cf/"+uid})
         details = parse_json(details)
         if details:
             full_url = details['link']
