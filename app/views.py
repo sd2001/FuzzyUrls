@@ -115,7 +115,7 @@ def geturl(request):
         details = tokendb.find_one({'token':token})
         
         if details:
-            if int(details['frequency']) > 0:
+            if int(details['frequency']) <= 0:
                 return Response({
                     "error":{
                         "status": "Usage Quota Exceeded",
