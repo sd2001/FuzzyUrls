@@ -10,9 +10,9 @@ from bson import ObjectId
 from bson.json_util import loads, dumps
 from Urlshort import settings
 
-client = MongoClient(os.environ.get('mongo'))
-db = client[os.environ.get('database')]
-coll = db[os.environ.get('collection')]
+client = MongoClient("mongodb+srv://sd:sddb@cluster0.3kt8t.mongodb.net/SD_URLS?retryWrites=true&w=majority")
+db = client["SD_URLS"]
+coll = db["urls"]
 # Create your views here.
 def parse_json(data):
     return json.loads(dumps(data))
@@ -37,7 +37,7 @@ def short(request):
         surl = "http://davgo.cf/"+new_url
         sch = {'uid' : user, 'link' : url, 'new' : surl}
         coll.insert_one(sch)
-        return render(request, 'index.html', {'user':user, 'url': url, 'new':surl})    
+        return render(request, 'short.html', {'user':user, 'url': url, 'new':surl})    
 
 def mailing(request):    
     if request.method == 'POST':        
@@ -49,9 +49,9 @@ def mailing(request):
         surl = details['new']
         try:
             send_mail("Shorten URLs", mssg, settings.EMAIL_HOST_USER, [mail])
-            return render(request, 'index.html', {'user':user, 'new':surl, 'success': True})
+            return render(request, 'short.html', {'user':user, 'new':surl, 'success': True})
         except Exception as e:
-            return render(request, 'index.html', {'user':user, 'new':surl, 'success': False})
+            return render(request, 'short.html', {'user':user, 'new':surl, 'success': False})
         
 def openurl(request, uid):  
     if uid != "": 
