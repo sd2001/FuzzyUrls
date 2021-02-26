@@ -16,10 +16,12 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import api_view
 from rest_framework import status
 
+
 client = MongoClient(os.environ.get('mongo'))
 db = client[os.environ.get('database')]
 coll = db[os.environ.get('collection')]
 tokendb = db[os.environ.get('tokendb')]
+
 # Create your views here.
 def parse_json(data):
     return json.loads(dumps(data))
@@ -36,7 +38,7 @@ def index(request):
     response.set_cookie('key', str(uuid.uuid1()))
     return response
 
-def short(request):
+def short(request):    
     if request.method == 'POST':
         user = request.COOKIES.get('key')
         url = request.POST['link']
@@ -44,9 +46,11 @@ def short(request):
         surl = "http://davgo.cf/"+new_url
         sch = {'uid' : user, 'link' : url, 'new' : surl}
         coll.insert_one(sch)
-        return render(request, 'index.html', {'user':user, 'url': url, 'new':surl})    
+        return render(request, 'short.html', {'user':user, 'url': url, 'new':surl}) 
+    return redirect('/')  
+         
 
-def mailing(request):    
+def mailing(request):
     if request.method == 'POST':        
         mail = request.POST['mail']
         user = request.COOKIES.get('key')
@@ -56,9 +60,10 @@ def mailing(request):
         surl = details['new']
         try:
             send_mail("Shorten URLs", mssg, settings.EMAIL_HOST_USER, [mail])
-            return render(request, 'index.html', {'user':user, 'new':surl, 'success': True})
+            return render(request, 'short.html', {'user':user, 'new':surl, 'success': True})
         except Exception as e:
-            return render(request, 'index.html', {'user':user, 'new':surl, 'success': False})
+            return render(request, 'short.html', {'user':user, 'new':surl, 'success': False})
+    return redirect('/')
         
 def openurl(request, uid):  
     if uid != "": 
@@ -71,7 +76,7 @@ def openurl(request, uid):
             else:        
                 return redirect("http://"+full_url)
         else:
-            return HttpResponse(200)
+            return HttpResponse(404)
         
 def generateToken(request):
     pass
@@ -110,7 +115,7 @@ def geturl(request):
         details = tokendb.find_one({'token':token})
         
         if details:
-            if int(details['frequency']) > int(os.environ.get('max')):
+            if int(details['frequency']) > 0:
                 return Response({
                     "error":{
                         "status": "Usage Quota Exceeded",
@@ -124,12 +129,12 @@ def geturl(request):
             surl = "http://davgo.cf/"+new_url
             sch = {'uid' : "API CALL", 'link' : url, 'new' : surl}
             coll.insert_one(sch) 
-            tokendb.update_one({"token":token},{"$set":{"frequency": details['frequency']+1}})
+            tokendb.update_one({"token":token},{"$set":{"frequency": details['frequency']-1}})
             return Response({
                 "Response":{
                     "New Url": surl,
                     "Original Url": url,
-                    "API Calls Remaining": int(os.environ.get('max'))- details['frequency'],
+                    "API Calls Remaining": details['frequency'],
                 },
                 "code":200
             },
