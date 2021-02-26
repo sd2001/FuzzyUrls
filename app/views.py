@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
 from .models import URL
 import uuid
 import pymongo
@@ -9,10 +10,16 @@ import os, json
 from bson import ObjectId
 from bson.json_util import loads, dumps
 from Urlshort import settings
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.decorators import api_view
+from rest_framework import status
 
 client = MongoClient(os.environ.get('mongo'))
 db = client[os.environ.get('database')]
 coll = db[os.environ.get('collection')]
+tokendb = db[os.environ.get('tokendb')]
 # Create your views here.
 def parse_json(data):
     return json.loads(dumps(data))
@@ -65,3 +72,76 @@ def openurl(request, uid):
                 return redirect("http://"+full_url)
         else:
             return HttpResponse(200)
+        
+def generateToken(request):
+    pass
+
+@csrf_exempt
+@api_view(["POST"])
+def geturl(request):
+    # print(request.POST)
+    if request.method == 'POST':
+        try:    
+            url = request.POST["link"]
+        except Exception as e:
+            return Response({
+                    "error":{
+                        "status": "Missing Paramater",
+                        "additional": "Link not Entered"
+                    },
+                    "code":400
+                }, 
+                status = status.HTTP_400_BAD_REQUEST)
+            
+        try:
+            token = request.POST["token"]
+        except Exception as e:
+            return Response({
+                    "error":{
+                        "status": "Authentication Error",
+                        "additional": "Please provide an API Token"
+                    },
+                    "code":400
+                }, 
+                status = status.HTTP_400_BAD_REQUEST)
+            
+            
+               
+        details = tokendb.find_one({'token':token})
+        
+        if details:
+            if int(details['frequency']) > int(os.environ.get('max')):
+                return Response({
+                    "error":{
+                        "status": "Usage Quota Exceeded",
+                        "additional": "Max 20 calls allowed per token"
+                    },
+                    "code":400
+                }, 
+                status = status.HTTP_400_BAD_REQUEST)
+            
+            new_url = str(uuid.uuid4())[:5]
+            surl = "http://davgo.cf/"+new_url
+            sch = {'uid' : "API CALL", 'link' : url, 'new' : surl}
+            coll.insert_one(sch) 
+            tokendb.update_one({"token":token},{"$set":{"frequency": details['frequency']+1}})
+            return Response({
+                "Response":{
+                    "New Url": surl,
+                    "Original Url": url,
+                    "API Calls Remaining": int(os.environ.get('max'))- details['frequency'],
+                },
+                "code":200
+            },
+            status = status.HTTP_200_OK)
+        elif details == None:
+            return Response({
+                    "error":{
+                        "status": "Invalid Credentials",
+                        "additional": "Token doesn't match our records"
+                    },
+                    "code":400
+                }, 
+                status = status.HTTP_400_BAD_REQUEST)			
+    
+  

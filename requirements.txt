@@ -7,8 +7,8 @@ dj-database-url==0.5.0
 Django==3.1.7
 django-heroku==0.3.1
 django-markwhat==1.6.2
+djangorestframework==3.12.2
 dnspython==2.1.0
-dotenv-python==0.0.1
 gunicorn==20.0.4
 keyring==5.7.1
 markdown2==2.4.0
