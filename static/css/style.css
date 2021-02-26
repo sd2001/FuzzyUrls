@@ -18,11 +18,17 @@
   padding: 1rem;
   max-width: 60%;
 }
-
-.isa_error {
+.alert-success {
   color: #4f8a10;
   background-color: #ffd2d2;
+  margin: 1rem 0;
+  padding: 1rem;
+  max-width: 60%;
 }
+/* .isa_error {
+  color: #4f8a10;
+  background-color: #ffd2d2;
+} */
 .isa_info i,
 .isa_success i,
 .isa_warning i,
