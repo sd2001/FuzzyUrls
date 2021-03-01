@@ -20,12 +20,10 @@
  <p>
  <br>
    <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge" /><br>
+   <br><strong>FuzzyUrls</strong> is available under MIT License, read the LICENSE file for more info
   <p>
   </div>
-  ```
-  FuzzyUrls
-  ```
-  is available under MIT License, read the LICENSE file for more info/
+  
  
 <div align="center">
   <h3>Contributors</h3>
