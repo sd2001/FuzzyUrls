@@ -22,7 +22,7 @@
    <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge" /><br>
    <br><strong>FuzzyUrls</strong> is available under MIT License, read the LICENSE file for more info
   <p>
-  </div>
+  </div><br>
 <div align="center">
   <p>    
   <img src="https://img.shields.io/badge/How%20to%20start%20locally%F0%9F%9B%A0%EF%B8%8F-purple?logo=visual-studio-code&style=for-the-badge" /><br>
