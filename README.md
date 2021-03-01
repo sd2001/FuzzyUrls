@@ -23,10 +23,37 @@
    <br><strong>FuzzyUrls</strong> is available under MIT License, read the LICENSE file for more info
   <p>
   </div>
-  
+<div align="center">
+  <p>    
+  <img src="https://img.shields.io/badge/How%20to%20start%20locally%F0%9F%9B%A0%EF%B8%8F-purple?logo=visual-studio-code&style=for-the-badge" /><br>
+</div>
+
+- **Fork** the Repository
+- Open your **Terminal/CMD**
+ 
+ ```
+ git clone "https://github.com/sd2001/FuzzyUrls.git"
+ ```   
+ 
+ ```
+ cd FuzzyUrls
+ ```
+ 
+ ```
+ pip install virtualenv
+ python -m venv <name of environment>
+ source <name>/bin/activate
+ pip install -r requirements.txt
+ ```
+ 
+ ```
+ python manage.py runserver
+ ```
+ 
+ Server start running on port **localhost:8000**
  
 <div align="center">
-  <h3>Contributors</h3>
+  <img src="https://img.shields.io/badge/Contributors-black?logo=github&style=for-the-badge" />
  </div>
  
 <div align="center">
