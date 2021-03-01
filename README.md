@@ -16,6 +16,16 @@
   <br>
   <img src="https://github.com/sd2001/FuzzyUrls/blob/main/assets/mockup.png"/>
  </div>
+ <div align="center">
+ <p>
+ <br>
+   <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge" /><br>
+  <p>
+  </div>
+  ```
+  FuzzyUrls
+  ```
+  is available under MIT License, read the LICENSE file for more info/
  
 <div align="center">
   <h3>Contributors</h3>
