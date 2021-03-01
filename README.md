@@ -1,6 +1,6 @@
 <div align="center"> 
   <p align='center'> 
-   <img src="https://img.shields.io/badge/-%20%20Fuzzy%20URLs%20:%20davgo.cf%20-darkgreen?style=for-the-badge" />
+   <img src="https://img.shields.io/badge/-%20%20Fuzzy%20URLs%20:%20www.davgo.cf%20-darkgreen?style=for-the-badge" />
    <img src="https://forthebadge.com/images/badges/built-with-love.svg" />
    <img src="https://img.shields.io/badge/-By%20Swarnabha%20&%20Sujay-blue?style=for-the-badge" /><br>
    <img src="http://ForTheBadge.com/images/badges/made-with-python.svg" />
