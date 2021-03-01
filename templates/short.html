@@ -30,7 +30,7 @@
     <div class="main">
       {% block content %} {% if new %}
 
-      <form id="form-2" class="form-2" method="POST" action="/m/mail">
+      <form id="form-2" class="form-2" method="POST" action="/m/mail" autocomplete="off">
         {% csrf_token %}
         <p class="text" align="center">
           <i class="fas fa-link"></i> New Link:
