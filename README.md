@@ -11,7 +11,7 @@
  
  <div align="center">
   <p>
-  <img src="https://img.shields.io/badge/%F0%9F%9B%A9%EF%B8%8FGenerate%20the%20%22David%22%20for%20your%20%22Goliath%22%20URLs🚀-pink?logo=appveyor&style=for-the-badge" />
+  <img src="https://img.shields.io/badge/%F0%9F%9B%A9%EF%B8%8FGenerate%20a%20%22David%22%20for%20the%20%22Goliath%22%20URLs🚀-pink?logo=appveyor&style=for-the-badge" />
   </p>
   <br>
   <img src="https://github.com/sd2001/FuzzyUrls/blob/main/assets/mockup.png"/>
