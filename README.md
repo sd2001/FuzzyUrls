@@ -26,11 +26,11 @@
 <div align="center">
   <p>    
   <img src="https://img.shields.io/badge/How%20to%20start%20locally%F0%9F%9B%A0%EF%B8%8F-purple?logo=visual-studio-code&style=for-the-badge" /><br>
-</div>
+</div><br>
 
 - **Fork** the Repository
-- Open your **Terminal/CMD**
- 
+- Open your **Terminal / Cmd**
+ <br><br>
  ```
  git clone "https://github.com/sd2001/FuzzyUrls.git"
  ```   
@@ -91,3 +91,5 @@ Sujay Goswami
 </table>
 </tr>
  </table>
+ 
+ 
