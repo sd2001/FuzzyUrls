@@ -44,6 +44,7 @@ def short(request):
         user = request.COOKIES.get('key')
         url = request.POST['link']
         http = urllib3.PoolManager()
+        valid = False
         if url.startswith("http"):            
             url = url	
         else:
