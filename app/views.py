@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from django.http import HttpResponse
-import validators as vurl
+import urllib3
 from django.views.decorators.csrf import csrf_exempt
 from .models import URL
 import uuid
@@ -43,10 +43,18 @@ def short(request):
     if request.method == 'POST':
         user = request.COOKIES.get('key')
         url = request.POST['link']
-        if url.startswith("http"):
-            valid = vurl.url(url)
+        http = urllib3.PoolManager()
+        if url.startswith("http"):            
+            url = url	
         else:
-            valid = vurl.url("http://"+url)
+            url = "http://"+url
+        
+        try:
+            ret = http.request('GET',url)
+            if ret.status == 200:
+                valid = True
+        except Exception as e:
+            valid = False
             
         if valid == True:
             new_url = str(uuid.uuid4())[:5]
