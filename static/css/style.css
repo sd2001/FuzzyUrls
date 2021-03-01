@@ -55,6 +55,8 @@ canvas {
   vertical-align: bottom;
   width: 100vw;
   height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 :root {
   --mainColor: #0b5f3c;
@@ -85,6 +87,7 @@ canvas {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
+  margin: 0;
 }
 /* input */
 input[type="text"] {
@@ -318,5 +321,17 @@ a {
   .form-full {
     padding: 30px;
     top: 25%;
+  }
+}
+
+@media (orientation: portrait) {
+  .form-2 {
+    height: auto;
+    min-height: 30%;
+    padding: 3rem 5rem;
+    border-radius: 10px;
+  }
+  #particles-js {
+    position: fixed;
   }
 }
