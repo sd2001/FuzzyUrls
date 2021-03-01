@@ -1,6 +1,8 @@
 <div align="center">
   <h1>FuzzyUrls</h1>
+  <p>Its <a href="www.davgo.cf">Live</a>🎉</p>
  </div>
+ 
  
 <div align="center">
   <h3>Contributors</h3>
