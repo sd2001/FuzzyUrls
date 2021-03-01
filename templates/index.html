@@ -59,6 +59,15 @@
               Shorten
             </button>
           </div>
+		{% if status == False%}
+		<div
+		id="success"
+		class="alert alert-danger"
+		align="center"
+		role="alert">	  
+		Kindly enter a valid URL🚨!
+		</div>
+		{% endif %}
         </div>
       </form>
 
