@@ -18,6 +18,7 @@
   padding: 1rem;
   max-width: 60%;
 }
+
 .alert-success {
   color: #4f8a10;
   background-color: #ffd2d2;
@@ -29,6 +30,9 @@
   color: #4f8a10;
   background-color: #ffd2d2;
 } */
+input:-internal-autofill-selected {
+    background-color: transparent;
+}
 .isa_info i,
 .isa_success i,
 .isa_warning i,
@@ -86,14 +90,14 @@ input[type="text"] {
   background: transparent;
   color: rgb(49, 63, 55);
   font-family: "Encode Sans", sans-serif;
-  font-size: 20px;
+  font-size: 15px;
   /* border: none; */
 }
 input[type="email"] {
   background: transparent;
   color: rgb(49, 63, 55);
   font-family: "Encode Sans", sans-serif;
-  font-size: 20px;
+  font-size: 15px;
   /* border: none; */
 }
 .input-field {
