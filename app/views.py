@@ -43,6 +43,8 @@ def short(request):
     if request.method == 'POST':
         user = request.COOKIES.get('key')
         url = request.POST['link']
+        if url.find('davgo') != -1:
+            return render(request, 'index.html', {'status': 'Funny'})
         http = urllib3.PoolManager()
         valid = False
         if url.startswith("http"):            
