@@ -321,11 +321,16 @@ a {
   .form-full {
     padding: 30px;
     top: 25%;
+    margin-top: 20vh;
+  }
+  .input-field {
+    width: 50vw;
   }
 }
 
 @media (orientation: portrait) {
   .form-2 {
+    left: 45%;
     height: auto;
     min-height: 30%;
     padding: 3rem 5rem;
@@ -333,5 +338,24 @@ a {
   }
   #particles-js {
     position: fixed;
+  }
+}
+
+@media (max-width: 414px) {
+  .link {
+    margin-left: -8vw;
+  }
+}
+@media (max-width: 360px) {
+  .link {
+    margin-left: -12vw;
+  }
+}
+@media (max-width: 320px) {
+  .link {
+    margin-left: -16vw;
+  }
+  .form-group {
+    width: 17rem;
   }
 }
