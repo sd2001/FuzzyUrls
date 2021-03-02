@@ -45,7 +45,6 @@ def short(request):
         url = request.POST['link']
         if url.find('davgo') != -1:
             return render(request, 'index.html', {'status': 'Funny'})
-
         http = urllib3.PoolManager()
         valid = False
         if url.startswith("http"):            
