@@ -26,6 +26,6 @@ six==1.15.0
 sqlparse==0.2.4
 tornado==6.1
 uuid==1.30
-urllib3==1.26.3
+urllib3==1.26.4
 validators==0.18.2
 whitenoise==5.2.0
